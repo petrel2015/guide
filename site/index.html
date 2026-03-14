@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Interview Cards</title>
+    <link rel="stylesheet" href="./assets/app.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__title">Interview Cards</div>
+          <div class="brand__subtitle">静态面试背诵卡片</div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <h1 class="h1">入口</h1>
+	        <div class="grid">
+	          <a class="tile" href="./random/">
+	            <div class="tile__title">随机考察</div>
+	            <div class="tile__desc">随机抽一题，点击显示答案</div>
+	          </a>
+	          <a class="tile" href="./tag/">
+	            <div class="tile__title">标签考察</div>
+	            <div class="tile__desc">先选标签，再在该标签题库内背诵</div>
+	          </a>
+	          <a class="tile" href="./browse/">
+	            <div class="tile__title">选择考察</div>
+	            <div class="tile__desc">按目录/标签筛选，自选题目</div>
+	          </a>
+	        </div>
+      </section>
+
+      <footer class="footer">
+        <span id="buildInfo" class="muted"></span>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { loadCardsIndex } from "./assets/shared.js";
+
+      const buildInfo = document.getElementById("buildInfo");
+      try {
+        const index = await loadCardsIndex();
+        buildInfo.textContent = `卡片数：${index.count} · 构建时间：${new Date(
+          index.generatedAt
+        ).toLocaleString()}`;
+      } catch (err) {
+        buildInfo.textContent = "未能加载卡片数据，请先构建并使用本地服务器预览。";
+      }
+    </script>
+  </body>
+</html>

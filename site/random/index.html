@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>随机考察 · Interview Cards</title>
+    <link rel="stylesheet" href="../assets/app.css" />
+  </head>
+  <body>
+    <main class="page page--actionbar">
+      <header class="topbar">
+        <a class="topbar__link" href="../browse/">选择考察</a>
+        <div class="topbar__title">随机考察</div>
+        <a class="topbar__link" href="../tag/">标签考察</a>
+      </header>
+
+      <section class="panel panel--card">
+        <div class="panel__body">
+          <div class="meta">
+            <span id="counter" class="pill">-</span>
+            <span id="tagLine" class="tags"></span>
+          </div>
+          <div id="answer" class="card__answer is-hidden"></div>
+        </div>
+        <div class="panel__question">
+          <div id="question" class="card__question"></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="muted">快捷键：空格 显示/隐藏答案 · P 上一题 · N 下一题</span>
+      </footer>
+    </main>
+
+    <div class="actionbar" role="region" aria-label="操作区">
+      <div class="actionbar__inner">
+        <button id="prevCard" class="btn" type="button">上一题</button>
+        <button id="nextCard" class="btn" type="button">下一题</button>
+      </div>
+    </div>
+
+    <script type="module" src="../assets/random.js"></script>
+  </body>
+</html>

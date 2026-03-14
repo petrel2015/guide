@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>选择考察 · Interview Cards</title>
+    <link rel="stylesheet" href="../assets/app.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <a class="topbar__link" href="../random/">随机考察</a>
+        <div class="topbar__title">选择考察</div>
+        <a class="topbar__link" href="../tag/">标签考察</a>
+      </header>
+
+      <section class="panel">
+        <div class="filters">
+          <input
+            id="search"
+            class="input"
+            type="search"
+            placeholder="搜索问题/标签…"
+            autocomplete="off"
+          />
+          <button id="clearFilters" class="btn btn--small" type="button">清空</button>
+        </div>
+
+        <section class="subpanel">
+          <h2 class="h2">标签</h2>
+          <div id="tagList" class="chips"></div>
+        </section>
+
+        <section class="subpanel">
+          <h2 class="h2">题目</h2>
+          <div id="cardList" class="list"></div>
+        </section>
+      </section>
+
+      <section id="viewer" class="viewer is-hidden" aria-hidden="true">
+        <div class="viewer__sheet">
+          <div class="viewer__body">
+            <div id="viewerTags" class="tags"></div>
+            <div id="viewerAnswer" class="card__answer"></div>
+          </div>
+
+          <div class="viewer__question">
+            <div id="viewerQuestion" class="card__question"></div>
+          </div>
+
+          <footer class="viewer__actions">
+            <button id="viewerPrev" class="btn" type="button">上一题</button>
+            <button id="viewerNext" class="btn btn--primary" type="button">下一题</button>
+          </footer>
+        </div>
+      </section>
+
+    </main>
+
+    <script type="module" src="../assets/browse.js"></script>
+  </body>
+</html>

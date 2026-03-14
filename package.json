@@ -1,0 +1,17 @@
+{
+  "name": "interview-cards",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "http-server dist -p 4173 -a 0.0.0.0 -c-1"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "mermaid": "^11.12.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
