@@ -1,11 +1,29 @@
-// 设备检测 - 只允许特定 User-Agent 访问
+// 设备检测 - 必须同时满足指定 User-Agent 和 iPhone 15 Pro Max 尺寸
 
-const ALLOWED_USER_AGENT = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E148 Safari/604.1";
+const ALLOWED_USER_AGENT = "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1";
+
+function isIPhone15ProMax() {
+  // iPhone 15 Pro Max 屏幕尺寸检测
+  // 逻辑分辨率: 430 x 932
+  const width = window.screen.width;
+  const height = window.screen.height;
+
+  // 允许一定误差范围
+  const targetWidth = 430;
+  const targetHeight = 932;
+  const tolerance = 5;
+
+  const widthMatch = Math.abs(width - targetWidth) <= tolerance || Math.abs(width - targetHeight) <= tolerance;
+  const heightMatch = Math.abs(height - targetHeight) <= tolerance || Math.abs(height - targetWidth) <= tolerance;
+
+  return widthMatch && heightMatch;
+}
 
 export function checkDevice() {
   const ua = navigator.userAgent;
 
-  if (ua !== ALLOWED_USER_AGENT) {
+  // 必须同时满足 User-Agent 和屏幕尺寸
+  if (ua !== ALLOWED_USER_AGENT || !isIPhone15ProMax()) {
     document.body.innerHTML = `
       <div style="
         display: flex;
