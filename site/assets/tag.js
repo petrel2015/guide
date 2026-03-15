@@ -9,6 +9,9 @@ import {
   shuffleInPlace,
   uniqStrings
 } from "./shared.js";
+import { checkDevice } from "./device-check.js";
+
+checkDevice();
 
 const tagSearchEl = document.getElementById("tagSearch");
 const clearTagBtn = document.getElementById("clearTag");

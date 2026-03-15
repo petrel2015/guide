@@ -1,4 +1,7 @@
 import { loadCardsIndex, renderMermaid, renderTags, setHtml, setText, shuffleInPlace } from "./shared.js";
+import { checkDevice } from "./device-check.js";
+
+checkDevice();
 
 const questionEl = document.getElementById("question");
 const answerEl = document.getElementById("answer");
