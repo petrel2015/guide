@@ -72,14 +72,14 @@ button {
 }
 
 .page--actionbar {
-  padding-bottom: calc(env(safe-area-inset-bottom) + 112px);
+  padding-bottom: calc(env(safe-area-inset-bottom) );
 }
 
 /* 手机端：page 全屏 */
 @media (max-width: 720px) {
   .page--actionbar {
     padding: 0;
-    padding-bottom: calc(env(safe-area-inset-bottom) + 112px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 60px);
     gap: 0;
   }
 
@@ -107,7 +107,7 @@ button {
   max-width: var(--maxw);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
@@ -190,7 +190,7 @@ button {
   .panel__question {
     display: block;
     position: fixed;
-    bottom: calc(env(safe-area-inset-bottom) + 112px); /* actionbar 高度 */
+    bottom: calc(env(safe-area-inset-bottom) + 60px); /* actionbar 高度 */
     left: 0;
     right: 0;
     padding: 14px;
