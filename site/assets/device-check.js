@@ -1,4 +1,5 @@
-// 设备检测 - 必须同时满足指定 User-Agent 和 iPhone 15 Pro Max 尺寸
+// 设备检测开关 - 手动修改此值以启用/禁用检查
+const ENABLE_DEVICE_CHECK = true;
 
 const ALLOWED_USER_AGENT = "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1";
 
@@ -20,6 +21,8 @@ function isIPhone15ProMax() {
 }
 
 export function checkDevice() {
+  if (!ENABLE_DEVICE_CHECK) return;
+
   const ua = navigator.userAgent;
 
   // 必须同时满足 User-Agent 和屏幕尺寸

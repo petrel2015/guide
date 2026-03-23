@@ -9,8 +9,11 @@
   <body>
     <main class="page page--actionbar">
       <header class="topbar">
-        <div class="topbar__title">标签模式</div>
-        <a class="topbar__link" href="../random/">随机模式</a>
+        <nav class="nav-group">
+          <a class="nav-item" href="../random/">随机</a>
+          <a class="nav-item" href="../list/">列表</a>
+          <a class="nav-item is-active" href="../tag/">标签</a>
+        </nav>
       </header>
 
       <section class="panel panel--card">
@@ -25,7 +28,10 @@
           <button id="clearTag" class="btn btn--small is-hidden" type="button">清空</button>
         </div>
 
-        <div id="tagList" class="chips" aria-label="标签列表"></div>
+        <div id="tagListContainer" class="chips-container">
+          <div id="tagList" class="chips" aria-label="标签列表"></div>
+        </div>
+        <button id="toggleTags" class="toggle-tags" type="button">展开全部标签</button>
 
         <div class="panel__body">
           <div class="meta">

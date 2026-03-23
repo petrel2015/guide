@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>列表模式 · Cards</title>
+    <link rel="stylesheet" href="../assets/app.css" />
+    <style>
+      .list-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .list-card__header {
+        padding: 14px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+        background: var(--panel-2);
+      }
+      .list-card__header:hover {
+        filter: brightness(0.98);
+      }
+      .list-card__question {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.4;
+      }
+      .list-card__body {
+        padding: 14px;
+        border-top: 1px dashed var(--border);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .list-card__body.is-hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <nav class="nav-group">
+          <a class="nav-item" href="../random/">随机</a>
+          <a class="nav-item is-active" href="../list/">列表</a>
+          <a class="nav-item" href="../tag/">标签</a>
+        </nav>
+      </header>
+
+      <section class="panel">
+        <div class="filters">
+          <input id="tagSearch" class="input" type="search" placeholder="过滤标签…" autocomplete="off" />
+          <button id="clearTag" class="btn btn--small" type="button">清空</button>
+        </div>
+        <div id="tagListContainer" class="chips-container">
+          <div id="tagList" class="chips"></div>
+        </div>
+        <button id="toggleTags" class="toggle-tags" type="button">展开全部标签</button>
+      </section>
+
+      <div id="modeInfo" class="muted" style="text-align: center; margin: 10px 0;">请选择一个标签</div>
+
+      <section id="cardList"></section>
+    </main>
+
+    <script type="module">
+      import { checkDevice } from "../assets/device-check.js";
+      checkDevice();
+    </script>
+    <script type="module" src="../assets/list.js"></script>
+  </body>
+</html>

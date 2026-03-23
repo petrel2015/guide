@@ -16,6 +16,8 @@ checkDevice();
 const tagSearchEl = document.getElementById("tagSearch");
 const clearTagBtn = document.getElementById("clearTag");
 const tagListEl = document.getElementById("tagList");
+const tagListContainerEl = document.getElementById("tagListContainer");
+const toggleTagsBtn = document.getElementById("toggleTags");
 
 const modeInfoEl = document.getElementById("modeInfo");
 const counterEl = document.getElementById("counter");
@@ -32,6 +34,11 @@ let selectedTag = "";
 let cards = [];
 let order = [];
 let orderIdx = 0;
+
+toggleTagsBtn.addEventListener("click", () => {
+  const isExpanded = tagListContainerEl.classList.toggle("is-expanded");
+  toggleTagsBtn.textContent = isExpanded ? "收起标签" : "展开全部标签";
+});
 
 function resetQuizState() {
   order = [];
